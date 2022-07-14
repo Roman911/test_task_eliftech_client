@@ -1,0 +1,5 @@
+export { Header } from './Header'
+export { Products } from './Products'
+export { Shop } from './Shop'
+export { ShoppingCart } from './ShoppingCart'
+export { Shops } from './Shops'
