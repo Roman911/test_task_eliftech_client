@@ -1,11 +1,15 @@
 import type { IProduct } from '../../typesScript/product'
-import { useActions } from '../../hooks'
-
 import { CartAction, CartActionTypes } from '../types/cart'
+import { AppDispatch } from '../store'
+import { shopActive } from './shop'
 
 export const addProduct = (payload: IProduct): CartAction => {
-  
   return { type: CartActionTypes.ADD_PRODUCT, payload }
+}
+
+export const addFirstProduct = (payload: IProduct) => (dispatch: AppDispatch) => {
+  dispatch(shopActive(payload.shop))
+  dispatch(addProduct(payload))
 }
 
 export const removeProduct = (payload: string): CartAction => {

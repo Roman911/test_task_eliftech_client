@@ -2,7 +2,7 @@ import { ShopAction, ShopActionTypes, ShopState } from "../types/shop"
 
 const initialState: ShopState = {
   shop: 'mc Donalds',
-  isShop: false
+  shopActive: null
 }
 
 export const shopReducer = (state = initialState, action: ShopAction): ShopState => {
@@ -12,10 +12,15 @@ export const shopReducer = (state = initialState, action: ShopAction): ShopState
         ...state,
         shop: action.payload
       }
-    case ShopActionTypes.IS_SHOP:
+    case ShopActionTypes.SHOP_ACTIVE:
       return {
         ...state,
-        isShop: action.payload
+        shopActive: action.payload
+      }
+    case ShopActionTypes.SHOP_DEACTIVE:
+      return {
+        ...state,
+        shopActive: null
       }
     default: return state
   }

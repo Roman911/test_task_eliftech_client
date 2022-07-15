@@ -8,6 +8,7 @@ export const PRODUCTS = gql`
       description
       price
       img
+      shop
     }
   }
 `;

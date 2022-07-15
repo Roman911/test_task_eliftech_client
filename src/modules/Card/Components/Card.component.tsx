@@ -1,21 +1,16 @@
 import React from "react"
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Stack, Typography } from '@mui/material'
 import { Check } from '@mui/icons-material'
-import { IProduct } from '../../../../typesScript/product'
+import { IProduct } from '../../../typesScript/product'
 
 type Props = {
   item: IProduct
-  handleClick: (product: IProduct) => void
+  handleClick: () => void
+  isActive: boolean
 }
 
-const ProductCard: React.FC<Props> = ({ item, handleClick }) => {
-  const [ isActive, setActive ] = React.useState(false)
+const CardComponent: React.FC<Props> = ({ item, isActive, handleClick }) => {
   const { name, description, price, img } = item
-
-  const click = () => {
-    setActive(prev => !prev)
-    handleClick(item)
-  }
 
   return <Grid item xs={12} sm={6} md={6}>
     <Card elevation={5}>
@@ -28,19 +23,19 @@ const ProductCard: React.FC<Props> = ({ item, handleClick }) => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            { name }
+            {name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            { description }
+            {description}
           </Typography>
         </CardContent>
       </Stack>
       <CardActions sx={{ justifyContent: 'space-between', padding: '10px 20px' }}>
-        <Typography variant="h5" >{ `$${price}` }</Typography>
-        <Button onClick={click} variant="outlined" disabled={ isActive } endIcon={isActive && <Check />}>Add to cart</Button>
+        <Typography variant="h5" >{`$${price}`}</Typography>
+        <Button onClick={handleClick} variant="outlined" endIcon={isActive && <Check color="success" />}>Add to cart</Button>
       </CardActions>
     </Card>
   </Grid>
 }
 
-export default ProductCard
+export default CardComponent

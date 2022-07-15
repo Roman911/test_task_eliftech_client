@@ -7,14 +7,17 @@ type Props = {
     img: string
   }
   handleClick: (shop: string) => void
+  isActive: boolean | string | null
 }
 
-const MarketComponent: React.FC<Props> = ({ item: {shop, img}, handleClick }) => {
-  return <Paper onClick={() => handleClick(shop)} elevation={6} sx={{cursor: 'pointer'}}>
+const MarketComponent: React.FC<Props> = ({ item: { shop, img }, handleClick, isActive }) => {
+  const active = (isActive === false) ? 0.5 : 1
+
+  return <Paper onClick={() => handleClick(shop)} elevation={6} sx={{ cursor: 'pointer', opacity: active }}>
     <Stack direction='row' spacing={2} alignItems='center' padding={2} >
       <img src={`./img/${img}`} alt="" width='40px' />
       <Typography variant="h6">
-        { shop }
+        {shop}
       </Typography>
     </Stack>
   </Paper>
