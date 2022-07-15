@@ -1,12 +1,22 @@
 import React from "react"
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Stack, Typography } from '@mui/material'
+import { Check } from '@mui/icons-material'
 import { IProduct } from '../../../../typesScript/product'
 
 type Props = {
   item: IProduct
+  handleClick: (product: IProduct) => void
 }
 
-const ProductCard: React.FC<Props> = ({ item: { name, description, price, img } }) => {
+const ProductCard: React.FC<Props> = ({ item, handleClick }) => {
+  const [ isActive, setActive ] = React.useState(false)
+  const { name, description, price, img } = item
+
+  const click = () => {
+    setActive(prev => !prev)
+    handleClick(item)
+  }
+
   return <Grid item xs={12} sm={6} md={6}>
     <Card elevation={5}>
       <Stack direction='row' alignItems='center' >
@@ -27,7 +37,7 @@ const ProductCard: React.FC<Props> = ({ item: { name, description, price, img } 
       </Stack>
       <CardActions sx={{ justifyContent: 'space-between', padding: '10px 20px' }}>
         <Typography variant="h5" >{ `$${price}` }</Typography>
-        <Button variant="outlined">Add to cart</Button>
+        <Button onClick={click} variant="outlined" disabled={ isActive } endIcon={isActive && <Check />}>Add to cart</Button>
       </CardActions>
     </Card>
   </Grid>

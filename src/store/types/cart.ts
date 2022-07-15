@@ -1,12 +1,22 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux'
-import thunk from 'redux-thunk'
-import { shopReducer } from '../reducers/shop'
+import type { IProduct } from '../../typesScript/product'
 
-const rootReducer = combineReducers({
-  shop: shopReducer
-})
+export interface CartState {
+  products: {
+    product: IProduct,
+    sum: number
+  }[] | []
+}
 
-export const store = createStore(rootReducer, applyMiddleware(thunk))
+export enum CartActionTypes {
+  ADD_PRODUCT = 'CART:ADD_PRODUCT',
+  REMOVE_PRODUCT = 'CART:REMOVE_PRODUCT',
+  ADD_SUM = 'CART:ADD_SUM',
+  DEC_SUM = 'CART:DEC_SUM'
+}
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+interface AddProductAction { type: CartActionTypes.ADD_PRODUCT, payload: IProduct }
+interface RemoveProduct { type: CartActionTypes.REMOVE_PRODUCT, payload: string }
+interface AddSum { type: CartActionTypes.ADD_SUM, payload: string }
+interface DecSum { type: CartActionTypes.DEC_SUM, payload: string }
+
+export type CartAction = AddProductAction | RemoveProduct | AddSum | DecSum
