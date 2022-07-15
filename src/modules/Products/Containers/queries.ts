@@ -6,6 +6,8 @@ export const PRODUCTS = gql`
       _id
       name
       description
+      price
+      img
     }
   }
 `;
