@@ -23,3 +23,7 @@ export const addSum = (payload: string): CartAction => {
 export const decSum = (payload: string): CartAction => {
   return { type: CartActionTypes.DEC_SUM, payload }
 }
+
+export const resetProducts = (): CartAction => {
+  return { type: CartActionTypes.RESET_PRODUCTS }
+}

@@ -22,7 +22,7 @@ const CardComponent: React.FC<Props> = ({ item, isActive, handleClick, handleCli
         <CardMedia
           component="img"
           image={img}
-          alt="Біг Мак"
+          alt={name}
           sx={{ maxWidth: '40%' }}
         />
         <CardContent>
