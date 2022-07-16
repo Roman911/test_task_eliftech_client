@@ -1,0 +1,1 @@
+export { default as ShoppingCartComponent } from './ShoppingCart.component'

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom"
-import { Header, Shop, ShoppingCart } from './Components'
+import { ShoppingCart } from './modules'
+import { Header, Shop } from './Components'
 
 const App: React.FC = () => {
   return (
