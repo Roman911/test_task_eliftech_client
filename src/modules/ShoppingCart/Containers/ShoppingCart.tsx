@@ -9,7 +9,7 @@ import { ShoppingCartComponent } from '../Components'
 const schema = yup.object().shape({
   address: yup.string().min(10).max(100).required(),
   email: yup.string().required().email(),
-  phone: yup.string().required(),
+  phone: yup.string().min(10).required(),
   name: yup.string().min(3).max(20).required()
 })
 

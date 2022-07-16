@@ -1,8 +1,8 @@
 import React from "react"
-import { Controller, useFormContext } from "react-hook-form"
-import { Box, Button, Grid, Paper, Stack, TextField, Typography } from '@mui/material'
+import { Box, Button, Grid, Paper, Stack, Typography } from '@mui/material'
 import { IProduct } from '../../../typesScript/product'
 import { Card } from '../../'
+import { MyInput, PhoneInput } from '../../../Components'
 
 type Props = {
   totalPrice: number
@@ -13,56 +13,14 @@ type Props = {
 }
 
 const ShoppingCartComponent: React.FC<Props> = ({ products, totalPrice }) => {
-  const { control, formState: { errors } } = useFormContext()
-
   return <Box marginTop={6} padding='20px'>
     <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Grid item xs={12} sm={12} md={6}>
         <Paper elevation={5} sx={{ padding: '20px' }}>
-          <Controller
-            name={'address'}
-            control={control}
-            render={({ field }) => <TextField
-              {...field}
-              label="Address"
-              variant="outlined"
-              error={!!errors['address']}
-              sx={{ width: '100%', margin: '10px 0' }}
-            />}
-          />
-          <Controller
-            name={'email'}
-            control={control}
-            render={({ field }) => <TextField
-              {...field}
-              label="Email"
-              variant="outlined"
-              error={!!errors['email']}
-              sx={{ width: '100%', margin: '10px 0' }}
-            />}
-          />
-          <Controller
-            name={'phone'}
-            control={control}
-            render={({ field }) => <TextField
-              {...field}
-              label="Phone"
-              variant="outlined"
-              error={!!errors['phone']}
-              sx={{ width: '100%', margin: '10px 0' }}
-            />}
-          />
-          <Controller
-            name={'name'}
-            control={control}
-            render={({ field }) => <TextField
-              {...field}
-              label="Name"
-              variant="outlined"
-              error={!!errors['name']}
-              sx={{ width: '100%', margin: '10px 0' }}
-            />}
-          />
+          <MyInput name='address' label="Address" />
+          <MyInput name='email' label='Email' />
+          <PhoneInput name='phone' />
+          <MyInput name='name' label="Name" />
         </Paper>
       </Grid>
       <Grid item xs={12} sm={12} md={6}>
