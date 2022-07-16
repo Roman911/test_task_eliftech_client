@@ -1,3 +1,8 @@
+# Link to the deployed projectм
+
+https://test-task-eliftech-client-6q0d7ymln-roman911.vercel.app/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
