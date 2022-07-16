@@ -42,6 +42,8 @@ const ShoppingCart: React.FC = () => {
     const { address, email, phone, name } = data
     const prod = products.map(i => i.product._id)
 
+    console.log({ address, email, phone, name, totalPrice: String(totalPrice), products: prod })
+
     createUser({
       variables: {
         input: {
@@ -57,7 +59,7 @@ const ShoppingCart: React.FC = () => {
       reset()
       resetProducts()
     }
-  }, [data, reset, resetProducts])
+  }, [data])
 
   if (data) return <Typography variant="h4" marginTop={6} padding={4}>Order id {orderId}</Typography>
 
