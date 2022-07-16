@@ -1,10 +1,8 @@
 import React from "react"
 import { useLazyQuery } from '@apollo/client'
-import { useActions, useTypedSelector } from '../../../hooks'
+import { useTypedSelector } from '../../../hooks'
 import { PRODUCTS } from './queries'
 import { ProductsComponent } from '../Components'
-
-const arr = ['1', '2', '3', '4', '5', '6', '7', '8']
 
 const Products: React.FC = () => {
   const { shop } = useTypedSelector(state => state.shop)
@@ -15,7 +13,7 @@ const Products: React.FC = () => {
 
   React.useEffect(() => {
     loadShops()
-  }, [shop])
+  }, [shop, loadShops])
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error</p>

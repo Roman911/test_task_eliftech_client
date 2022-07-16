@@ -11,7 +11,7 @@ export const linksItem = [
   },
   {
     id: 2,
-    label: "Other",
-    path: '/other'
+    label: "History",
+    path: '/history'
   }
 ]
