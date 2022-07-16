@@ -16,7 +16,7 @@ type Props = {
 const CardComponent: React.FC<Props> = ({ item, isActive, handleClick, handleClickInc, handleClickDec, isCart, sum }) => {
   const { name, description, price, img } = item
 
-  return <Grid item xs={12} sm={isCart ? 12 : 6} md={isCart ? 12 : 6} marginBottom={isCart ? 2 : 0}>
+  return <Grid item xs={12} sm={12} md={isCart ? 12 : 6} marginBottom={isCart ? 2 : 0}>
     <Card elevation={5}>
       <Stack direction='row' alignItems='center' >
         <CardMedia

@@ -33,10 +33,10 @@ const HistoryComponent: React.FC<IProps> = ({ users, isSubmit }) => {
               users && users?.length !== 0 ?
                 users.map(i => <Paper elevation={3} sx={{ padding: '20px', margin: '30px 0' }}>
                   <Grid container spacing={2}>
-                    <Grid item xs={8}>
+                    <Grid item xs={12} md={8}>
                       {i.products.map((item, index) => <CardComponent key={index} product={item} />)}
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={12} md={4}>
                       <Stack alignItems='center' justifyContent='center' height='100%'>
                         <Typography variant="h6">Total Price: ${i.totalPrice}</Typography>
                       </Stack>
