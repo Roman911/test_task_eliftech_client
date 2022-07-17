@@ -50,4 +50,4 @@ const History: React.FC = () => {
   </FormProvider>
 }
 
-export default History
+export default React.memo(History)

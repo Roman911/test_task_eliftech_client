@@ -25,4 +25,4 @@ const Shop: React.FC = () => {
   </Box >
 }
 
-export default Shop
+export default React.memo(Shop)

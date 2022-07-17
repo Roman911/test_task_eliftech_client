@@ -30,4 +30,4 @@ const GoogleMapsComponents: React.FC<Props> = ({ center, options, onLoad, locati
   </GoogleMap>
 }
 
-export default GoogleMapsComponents
+export default React.memo(GoogleMapsComponents)

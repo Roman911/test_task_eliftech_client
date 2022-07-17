@@ -47,4 +47,4 @@ const ShoppingCartComponent: React.FC<Props> = ({ products, totalPrice }) => {
   </Container>
 }
 
-export default ShoppingCartComponent
+export default React.memo(ShoppingCartComponent)

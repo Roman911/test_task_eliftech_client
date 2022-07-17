@@ -54,4 +54,4 @@ const CardComponent: React.FC<Props> = ({ item, isActive, handleClick, handleCli
   </Grid>
 }
 
-export default CardComponent
+export default React.memo(CardComponent)

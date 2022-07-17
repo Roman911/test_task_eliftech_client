@@ -3,11 +3,6 @@ import { Link, useLocation } from "react-router-dom"
 import { Box, Container, Tab, Tabs } from '@mui/material'
 import { linksItem } from './links'
 
-//type Props = {
-  //handleChange: (event: React.SyntheticEvent, newValue: number) => void
-  //value: number
-//}
-
 const Header: React.FC = () => {
   const { pathname } = useLocation()
   const [value, setValue] = React.useState(0)
@@ -18,7 +13,7 @@ const Header: React.FC = () => {
 
   React.useEffect(() => {
     linksItem.forEach(i => {
-      if(i.path === pathname) setValue(i.id)
+      if (i.path === pathname) setValue(i.id)
     })
   }, [pathname])
 
@@ -26,11 +21,11 @@ const Header: React.FC = () => {
     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
       <Container maxWidth="xl">
         <Tabs value={value} aria-label="lab API tabs example">
-          { links }
+          {links}
         </Tabs>
       </Container>
     </Box>
   </Box>
 }
 
-export default Header
+export default React.memo(Header)

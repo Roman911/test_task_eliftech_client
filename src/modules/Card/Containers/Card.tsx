@@ -14,9 +14,7 @@ const Card: React.FC<Props> = ({ item, isCart, sum }) => {
   const { products } = useTypedSelector(state => state.cart)
   const { addFirstProduct, addSum, decSum, removeProduct } = useActions()
 
-  React.useMemo(() => {
-    if (products.find(i => i.product._id === item._id)) setActive(true)
-  }, [item])
+  React.useMemo(() => { if (products.find(i => i.product._id === item._id)) setActive(true) }, [item])
 
   const handleClick = React.useCallback(() => {
     if (isActive) {
@@ -50,4 +48,4 @@ const Card: React.FC<Props> = ({ item, isCart, sum }) => {
   />
 }
 
-export default Card
+export default React.memo(Card)

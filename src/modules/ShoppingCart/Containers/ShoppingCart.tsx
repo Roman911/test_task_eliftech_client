@@ -42,8 +42,6 @@ const ShoppingCart: React.FC = () => {
     const { address, email, phone, name } = data
     const prod = products.map(i => i.product._id)
 
-    console.log({ address, email, phone, name, totalPrice: String(totalPrice), products: prod })
-
     createUser({
       variables: {
         input: {
@@ -72,4 +70,4 @@ const ShoppingCart: React.FC = () => {
   </FormProvider>
 }
 
-export default ShoppingCart
+export default React.memo(ShoppingCart)

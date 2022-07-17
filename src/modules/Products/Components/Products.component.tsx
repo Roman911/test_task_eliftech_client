@@ -13,4 +13,4 @@ const ProductsComponent: React.FC<Props> = ({ products }) => {
   </Grid>
 }
 
-export default ProductsComponent
+export default React.memo(ProductsComponent)

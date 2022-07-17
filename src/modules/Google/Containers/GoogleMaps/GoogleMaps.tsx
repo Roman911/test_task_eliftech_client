@@ -26,7 +26,7 @@ const GoogleMaps: React.FC = () => {
     clickableIcons: false
   }), [])
 
-  const { ready, value, setValue, suggestions: { status, data }, clearSuggestions } = usePlacesAutocomplete()
+  const { value, setValue, suggestions: { status, data }, clearSuggestions } = usePlacesAutocomplete()
 
   const handleSelect = async (val: string) => {
     setValue(val, false)
@@ -56,7 +56,6 @@ const GoogleMaps: React.FC = () => {
         travelMode: google.maps.TravelMode.DRIVING
       },
       (result, status) => {
-        console.log(result, status)
         if (status === 'OK' && result) {
           setDirections(result)
         }
@@ -86,4 +85,4 @@ const GoogleMaps: React.FC = () => {
   </Box>
 }
 
-export default GoogleMaps
+export default React.memo(GoogleMaps)

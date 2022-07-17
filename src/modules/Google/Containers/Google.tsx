@@ -14,4 +14,4 @@ const Google: React.FC = () => {
   return <GoogleMaps />
 }
 
-export default Google
+export default React.memo(Google)

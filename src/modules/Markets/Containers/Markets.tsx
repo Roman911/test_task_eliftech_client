@@ -19,9 +19,9 @@ const Markets: React.FC = () => {
     if (products.length === 0) shopDeactive()
   }, [products])
 
-  const handleClick = (props: Props) => {
+  const handleClick = React.useCallback((props: Props) => {
     if (!shopActive) setShop(props)
-  }
+  }, [])
 
   return <>
     {marketsItem.map((i, index) => {
@@ -35,4 +35,4 @@ const Markets: React.FC = () => {
   </>
 }
 
-export default Markets
+export default React.memo(Markets)

@@ -29,4 +29,4 @@ const MarketComponent: React.FC<Props> = ({ item: { shop, location, img }, handl
   </Paper>
 }
 
-export default MarketComponent
+export default React.memo(MarketComponent)

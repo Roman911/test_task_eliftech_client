@@ -53,4 +53,4 @@ const HistoryComponent: React.FC<IProps> = ({ users, isSubmit }) => {
   </Container>
 }
 
-export default HistoryComponent
+export default React.memo(HistoryComponent)

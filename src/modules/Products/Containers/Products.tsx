@@ -23,4 +23,4 @@ const Products: React.FC = () => {
   </>
 }
 
-export default Products
+export default React.memo(Products)

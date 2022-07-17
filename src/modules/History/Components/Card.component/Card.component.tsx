@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, Card, CardActions, CardContent, CardMedia, Divider, Grid, Stack, Typography } from '@mui/material'
+import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material'
 import type { IProduct } from '../../../../typesScript/product'
 
 type Props = {
@@ -25,4 +25,4 @@ const CardComponent: React.FC<Props> = ({ product: { img, name, price } }) => {
   </Card>
 }
 
-export default CardComponent
+export default React.memo(CardComponent)
