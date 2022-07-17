@@ -3,6 +3,14 @@ import { useActions, useTypedSelector } from '../../../hooks'
 import { MarketComponent } from '../Components'
 import { marketsItem } from './config'
 
+type Props = {
+  shop: string
+  location: {
+    lat: number
+    lng: number
+  }
+}
+
 const Markets: React.FC = () => {
   const { setShop, shopDeactive } = useActions()
   const { cart: { products }, shop: { shopActive } } = useTypedSelector(state => state)
@@ -11,8 +19,8 @@ const Markets: React.FC = () => {
     if (products.length === 0) shopDeactive()
   }, [products])
 
-  const handleClick = (shop: string) => {
-    if (!shopActive) setShop(shop)
+  const handleClick = (props: Props) => {
+    if (!shopActive) setShop(props)
   }
 
   return <>

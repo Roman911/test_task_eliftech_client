@@ -1,7 +1,7 @@
 import React from "react"
 import { Box, Button, Container, Grid, Paper, Stack, Typography } from '@mui/material'
 import { IProduct } from '../../../typesScript/product'
-import { Card } from '../../'
+import { Card, Google } from '../../'
 import { MyInput, PhoneInput } from '../../../Components'
 
 type Props = {
@@ -18,6 +18,9 @@ const ShoppingCartComponent: React.FC<Props> = ({ products, totalPrice }) => {
       <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={12} sm={12} md={6}>
           <Paper elevation={5} sx={{ padding: '20px' }}>
+            <Box>
+              <Google />
+            </Box>
             <MyInput name='address' label="Address" />
             <MyInput name='email' label='Email' />
             <PhoneInput name='phone' />

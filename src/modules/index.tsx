@@ -1,4 +1,5 @@
 export { Card } from './Card'
+export { Google } from './Google'
 export { History } from './History'
 export { Markets } from './Markets'
 export { Products } from './Products'

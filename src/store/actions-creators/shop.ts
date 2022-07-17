@@ -1,6 +1,13 @@
 import { ShopAction, ShopActionTypes } from '../types/shop'
 
-export const setShop = (payload: string): ShopAction => {
+interface IPayload {
+  shop: string, location: {
+    lat: number
+    lng: number
+  }
+}
+
+export const setShop = (payload: IPayload): ShopAction => {
   return { type: ShopActionTypes.SET_SHOP, payload }
 }
 
